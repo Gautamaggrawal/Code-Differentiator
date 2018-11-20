@@ -1,0 +1,8 @@
+1c1
+< 	.file	"file1.c"
+---
+> 	.file	"file2.c"
+4c4
+< 	.string	"heydd"
+---
+> 	.string	"hey"

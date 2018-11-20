@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Code differnces Detector</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {
+            font-family: "Lato", sans-serif}
+          .w3-bar,h1,button {
+            font-family: "Montserrat", sans-serif}
+          .fa-anchor,.fa-coffee {
+            font-size:200px}
+          /* DEMO-SPECIFIC STYLES */
+          .typewriter h1 {
+            color: #fff;
+            font-family: monospace;
+            overflow: hidden;
+            /* Ensures the content is not revealed until the animation */
+            white-space: nowrap;
+            /* Keeps the content on a single line */
+            /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em;
+            /* Adjust as needed */
+            animation:
+              typing 8.5s infinite,
+              blink-caret .99s infinite;
+          }
+          /* The typing effect */
+          @keyframes typing {
+            from {
+              width: 0 }
+            to {
+              width: 100% }
+          }
+          /* The typewriter cursor effect */
+          @keyframes blink-caret {
+            from, to {
+              border-color: transparent }
+            56% {
+              border-color: orange }
+          }
+  </style>
+</head>
+
+<body>
+  <header class="w3-container w3-green w3-center" style="padding:20px;">
+    <center>
+      <div class="typewriter">
+        <h1 class="w3-margin">Code Differences Detector
+          </h1>
+      </div>
+    </center>
+  </header>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" style="border-style:groove;">
+        <center>
+          <h3>Input Your Program 
+            </h3>
+          <br>
+        </center>
+        <div class="container">
+          <center>
+            <form method="post" enctype="multipart/form-data">{% csrf_token %} {{ form.as_p }}
+              <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+          </center>
+        </div>
+      </div>
+      <div class="col-sm" style="border-style:groove; margin-left: 80px">
+        <center>
+          <h3>Output 
+            </h3>
+        </center>
+        <center>
+          <textarea id="ta" name=txt rows="25" cols="55">{% for out in out %} {{out}} {% endfor %}</textarea>
+          <input type="button" value="Clear" onclick="javascript:eraseText();">
+        </center>
+      </div>
+    </div>
+    <br>
+  </div>
+  <script type="text/javascript">
+    function eraseText() {
+        document.getElementById("ta").value = "";
+    }
+  </script>
+</body>
+
+</html>
