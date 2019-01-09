@@ -1,2 +1,2 @@
 # text-comparison
-simple c and c++ programs comparison using "diff"
+A c and c++ programs plagiarism detector
